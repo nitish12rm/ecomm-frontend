@@ -4,16 +4,20 @@ import 'package:ecomm/core/routes.dart';
 import 'package:ecomm/logic/cubit/user_cubit.dart';
 import 'package:ecomm/presentation/auth/signIn_screen.dart';
 import 'package:ecomm/presentation/auth/signUp_screen.dart';
+import 'package:ecomm/presentation/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
+
   Bloc.observer = MyBlocObserver();
   runApp(const EcommApp());
 }
 
 class EcommApp extends StatefulWidget {
+
   const EcommApp({super.key});
 
   @override
@@ -31,7 +35,7 @@ class _EcommAppState extends State<EcommApp> {
       ],
       child: MaterialApp(
           onGenerateRoute: Routes.onGenerateRoute,
-        initialRoute: LoginScreen.routeName,
+        initialRoute: SplashScreen.routeName,
 
       ),
     );

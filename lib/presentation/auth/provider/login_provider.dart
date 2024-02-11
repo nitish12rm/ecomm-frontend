@@ -25,6 +25,10 @@ class LoginProvider with ChangeNotifier{
    StreamSubscription? _userSubscription;
 
   void  login () async{
+    //toh pehle hm validate krre hong textfields using the FORM widgets
+    //usme ek key lagaya h jisse hm uski state ko access kar payenge
+    //agar udhar se error ayega toh hm aage ka code iss block me execute nai karemge which is about login
+    if(!formKey.currentState!.validate()) return;
     String email = emailController.text.trim();
     String password = passwordController.text.trim();
 
